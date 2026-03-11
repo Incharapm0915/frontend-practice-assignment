@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <h1>Welcome<br/>Back.</h1>
+        <p>Sign in or create a new account<br/>to continue your journey.</p>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80"
+        alt="Scenic mountain landscape"
+        class="hero-image"
+      />
+      <div class="overlay"></div>
+    </div>
+
+    <!-- Right Panel: Form -->
+    <div class="right-panel">
+
+      <!-- Tab Toggle -->
+      <div class="tab-group">
+        <button class="tab active" onclick="switchTab('login', this)">Login</button>
+        <button class="tab" onclick="switchTab('register', this)">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <form class="form-section active" id="login">
+        <h2>Sign In</h2>
+        <p class="subtitle">Good to see you again 👋</p>
+
+        <div class="field-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="field-group">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" />
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+        <p class="switch-text">Don't have an account? <a onclick="switchTab('register', null)">Register</a></p>
+      </form>
+
+      <!-- Register Form -->
+      <form class="form-section" id="register">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join us today 🚀</p>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John" />
+          </div>
+          <div class="field-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="field-group">
+          <label>Password</label>
+          <input type="password" placeholder="Min 8 chars, 1 uppercase, 1 special" />
+        </div>
+
+        <button type="submit" class="btn-primary">Create Account</button>
+        <p class="switch-text">Already have an account? <a onclick="switchTab('login', null)">Login</a></p>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.form-section').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+      if (btn) btn.classList.add('active');
+      else {
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(t => { if (t.textContent.toLowerCase() === tab) t.classList.add('active'); });
+      }
+    }
+  </script>
+
+</body>
+</html>
