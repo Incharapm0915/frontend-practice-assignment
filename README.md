@@ -166,6 +166,5 @@ node index.js
 
 ## 👨‍💻 Author
 
-**Vinayaka**  
+**Inchara**  
 AI & ML Engineering Student  
-Bapuji Institute of Engineering and Technology, Davanagere
